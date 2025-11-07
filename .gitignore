@@ -1,8 +1,26 @@
+# Ignore Terraform temporary files, state files, and sensitive data
 ssh.keys
 variables.tf
-.terraform/
-.terraform.lock.hcl
-.terraform.tfstate.lock.info
-terraform.tfstate
-terraform.tfstate.backup
 .trunk
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.lock.*
+
+# Crash logs
+crash.log
+
+# Terraform lock files (optional to ignore)
+.terraform.lock.hcl
+
+# Local override files
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Provider plugins and modules
+.terraform/
