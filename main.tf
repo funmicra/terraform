@@ -1,5 +1,5 @@
 
-resource "proxmox_vm_qemu" "terraform-learning" {
+resource "proxmox_vm_qemu""My_ProxMox" {
   count       = var.vm_count
   vmid        = var.vmid + count.index
   onboot      = true
