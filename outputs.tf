@@ -1,7 +1,13 @@
 output "vm_names" {
-  value = [for vm in proxmox_vm_qemu.My_ProxMox : vm.name]
+  value = concat(
+    [for vm in proxmox_vm_qemu.k8s_Control_Plane : vm.name],
+    [for vm in proxmox_vm_qemu.k8s_Nodes : vm.name]
+  )
 }
 
 output "vm_ids" {
-  value = [for vm in proxmox_vm_qemu.My_ProxMox : vm.vmid]
+  value = concat(
+    [for vm in proxmox_vm_qemu.k8s_Control_Plane : vm.vmid],
+    [for vm in proxmox_vm_qemu.k8s_Nodes : vm.vmid]
+  )
 }
