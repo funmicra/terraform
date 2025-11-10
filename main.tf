@@ -88,17 +88,17 @@ resource "proxmox_vm_qemu""k8s_Nodes" {
   scsihw      = "virtio-scsi-single"
   boot        = "order=scsi0;ide2;net0"
   bootdisk    = "scsi0"
-  os_type     =  "cloud-init"
+  os_type     = "cloud-init"
 
   # Cloud-Init configuration
   ciuser       = var.ciuser
   cipassword   = var.cipassword
   ciupgrade    = true
-  sshkeys   = file("./ssh.keys")
-  ipconfig0  = "ip=192.168.88.${80 + count.index + 1}/25,gw=192.168.88.1"
+  sshkeys      = file("./ssh.keys")
+  ipconfig0    = "ip=192.168.88.${80 + count.index + 1}/25,gw=192.168.88.1"
   searchdomain = "local"
   nameserver   = "8.8.8.8 1.1.1.1"
-  skip_ipv6 = true
+  skip_ipv6    = true
   automatic_reboot = true
   #cicustom = file("./user-data.yaml")
 
