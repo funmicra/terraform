@@ -75,7 +75,7 @@ resource "proxmox_vm_qemu""k8s_Control_Plane" {
 # --- Worker Nodes ---
 
 resource "proxmox_vm_qemu""k8s_Nodes" {
-  count       = 1
+  count       = 3
   vmid        = 800 + "${count.index + 1}"
   onboot      = true
   vm_state    = "running"
